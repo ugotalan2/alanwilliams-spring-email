@@ -184,13 +184,17 @@ Implemented:
 * authenticated `alanwilliams.app` sending domain
 * successful real email delivery
 
-Next consumer:
+Current consumer:
 
 ```text
 alanwilliams-agenda
 ```
 
-Agenda will own invitation HTML and invitation business behavior while delegating provider delivery to this package.
+`0.1.0-SNAPSHOT` is published to GitHub Packages and consumed by Agenda. Agenda
+owns invitation HTML, invitation URLs, and invitation business behavior while
+delegating provider delivery to this package. Local issue/resend testing has
+successfully delivered real Agenda invitation emails through Resend, including
+replacement-token delivery on resend.
 
 ## Explicitly Deferred
 

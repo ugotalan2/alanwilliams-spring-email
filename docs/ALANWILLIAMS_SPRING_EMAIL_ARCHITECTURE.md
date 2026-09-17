@@ -348,16 +348,30 @@ push main
 * live email tests are opt-in only
 * no queue, persistence, scheduler, notification preferences, or template framework
 
-## Near-Term Integration
+## Agenda Integration
 
-Next:
+`0.1.0-SNAPSHOT` is published to GitHub Packages and consumed by
+`alanwilliams-agenda`. Agenda configures:
+
+```properties
+alanwilliams.email.api-key=${RESEND_API_KEY}
+alanwilliams.email.from-name=AlanWilliams Agenda
+```
+
+Agenda owns `OrganizationInvitationEmailService`, invitation subject/HTML,
+and the invitation URL. Issue/resend delegates provider delivery through
+`EmailService`.
+
+Local end-to-end verification has proven:
 
 ```text
-publish 0.1.0-SNAPSHOT
--> consume from alanwilliams-agenda
--> Agenda invitation-email service
--> Agenda-owned invitation HTML
--> issue/resend invokes EmailService
--> invitation URL delivered
--> invitation acceptance flow verified end to end
+Agenda invitation issue/resend
+-> alanwilliams-spring-email
+-> Resend
+-> authenticated notifications@alanwilliams.app sender
+-> real recipient inbox
 ```
+
+Resend/reissue produced a fresh invitation token and delivered the replacement
+message successfully. Agenda invitation acceptance frontend remains the next
+consumer workflow step.
