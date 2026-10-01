@@ -375,3 +375,30 @@ Agenda invitation issue/resend
 Resend/reissue produced a fresh invitation token and delivered the replacement
 message successfully. Agenda invitation acceptance frontend remains the next
 consumer workflow step.
+
+## Late September 2026 Consumer Branding Contract
+
+The shared email package remains responsible for generic delivery/provider
+integration only. Consumer applications own semantic content and branding.
+Agenda's proven invitation composition now supplies:
+
+``` text
+subject/title: Invitation to join <organization>
+Agenda public brand image
+recipient display name
+inviting OWNER display name/context
+organization name
+View Invitation action URL
+actual invitation expiration
+recipient-address / ignore notice
+AlanWilliams Apps footer / Platform destination
+```
+
+Images embedded in email HTML must be publicly reachable HTTPS resources.
+Agenda owns its Agenda image URL and Platform owns its Platform image URL; the
+shared email library does not host or bundle consumer brand assets.
+
+Invitation action URLs remain environment-specific through Agenda configuration.
+Provider credentials remain backend secrets and are never exposed to frontend
+code.
+

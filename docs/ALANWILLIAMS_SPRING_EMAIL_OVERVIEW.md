@@ -205,3 +205,17 @@ replacement-token delivery on resend.
 * scheduling framework
 * cross-app notification preferences
 * provider abstractions beyond what real consumers require
+
+## Late September 2026 Agenda Email Integration Milestone
+
+Agenda is now using the shared package for real invitation delivery through
+Resend. The shared library remains intentionally provider-level: Agenda owns the
+invitation lifecycle, recipient/context lookup, copy, branding, CTA URL, and
+expiration semantics.
+
+Current Agenda invitation email presentation includes the Agenda brand/header,
+organization name, inviter/owner context, recipient greeting, View Invitation
+CTA, sent-to/ignore notice, expiration date, and AlanWilliams Apps footer.
+Public email images use stable HTTPS URLs owned by the corresponding app; email
+HTML must not reference build-bundled/local-only assets.
+
